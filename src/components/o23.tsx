@@ -23,9 +23,9 @@ const O23 = () => {
     const newState = !isState2;
     setIsState2(newState);
     if (newState) {
-      router.push('?id=xy');
+      router.push('?id=xy', { scroll: false }); // Zustand 2 zur URL hinzufügen
     } else {
-      router.push('');
+      router.push('', { scroll: false }); // Zustand 1 zur URL zurücksetzen
     }
   };
 
@@ -35,8 +35,8 @@ const O23 = () => {
       initial={false}
       animate={isState2 ? 'state2' : 'state1'}
       variants={{
-        state1: { width: 200, height: 300, backgroundColor: 'green' },
-        state2: { width: 300, height: 500, backgroundColor: 'yellow' }
+        state1: { width: 200, height: 300, backgroundColor: 'orange' },
+        state2: { width: 300, height: 500, backgroundColor: 'pink' }
       }}
       transition={{ duration: 0.5 }}
       onClick={handleClick}
