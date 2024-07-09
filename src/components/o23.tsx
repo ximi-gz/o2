@@ -39,7 +39,7 @@ const O23 = () => {
       initial={false}
       animate={isState2 ? 'state2' : 'state1'}
       variants={{
-        state1: { width: 200, height: 300, backgroundColor: 'green' },
+        state1: { width: 200, height: 300, backgroundColor: 'orange' },
         state2: { width: 300, height: 500, backgroundColor: 'yellow' }
       }}
       transition={{ duration: 0.5 }}
