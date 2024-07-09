@@ -11,22 +11,15 @@ const O23 = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const id = searchParams.get('id');
-    if (id === 'xy') {
-      setIsState2(true);
-    } else {
-      setIsState2(false);
-    }
+    setIsState2(searchParams.get('id') === 'xy');
   }, [searchParams]);
 
   const handleClick = () => {
-    const newState = !isState2;
-    setIsState2(newState);
-    if (newState) {
-      router.push('?id=xy', { scroll: false }); // Zustand 2 zur URL hinzufügen
-    } else {
-      router.push('', { scroll: false }); // Zustand 1 zur URL zurücksetzen
-    }
+    setIsState2(prev => {
+      const newState = !prev;
+      router.push(newState ? '?id=xy' : '', { scroll: false });
+      return newState;
+    });
   };
 
   return (
@@ -35,10 +28,10 @@ const O23 = () => {
       initial={false}
       animate={isState2 ? 'state2' : 'state1'}
       variants={{
-        state1: { width: 200, height: 300, backgroundColor: 'orange' },
-        state2: { width: 300, height: 500, backgroundColor: 'pink' }
+        state1: { width: 200, height: 300, backgroundColor: 'pink' },
+        state2: { width: 300, height: 500, backgroundColor: 'orange' }
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
       onClick={handleClick}
     >
       Element o23
