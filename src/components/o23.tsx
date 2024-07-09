@@ -7,7 +7,7 @@ import styles from './o23.module.css';
 
 const O23 = () => {
   const [isState2, setIsState2] = useState(false);
-  const [shouldAnimate, setShouldAnimate] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -15,20 +15,23 @@ const O23 = () => {
     const id = searchParams.get('id');
     if (id === 'xy') {
       setIsState2(true);
-      setShouldAnimate(false); // Keine Animation beim ersten Laden
     }
+    setIsLoaded(true); // Setze geladenen Zustand auf true
   }, [searchParams]);
 
   const handleClick = () => {
     const newState = !isState2;
     setIsState2(newState);
-    setShouldAnimate(true); // Animationen bei Benutzerinteraktion aktivieren
     if (newState) {
-      router.push('?id=xy'); // Nur ein Argument
+      router.push('?id=xy'); // Zustand 2 zur URL hinzufügen
     } else {
-      router.push(''); // Nur ein Argument
+      router.push(''); // Zustand 1 zur URL zurücksetzen
     }
   };
+
+  if (!isLoaded) {
+    return null; // Warten auf das Laden der Parameter
+  }
 
   return (
     <motion.div
@@ -39,7 +42,7 @@ const O23 = () => {
         state1: { width: 200, height: 300, backgroundColor: 'green' },
         state2: { width: 300, height: 500, backgroundColor: 'yellow' }
       }}
-      transition={{ duration: shouldAnimate ? 0.5 : 0 }} // Animation nur bei Benutzerinteraktion
+      transition={{ duration: 0.5 }}
       onClick={handleClick}
     >
       Element o23
