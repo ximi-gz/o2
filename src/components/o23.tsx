@@ -7,6 +7,7 @@ import styles from './o23.module.css';
 
 const O23 = () => {
   const [isState2, setIsState2] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false); // Um initiale Animation zu verhindern
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -18,6 +19,7 @@ const O23 = () => {
     setIsState2(prev => {
       const newState = !prev;
       router.push(newState ? '?id=xy' : '', { scroll: false });
+      setHasInteracted(true); // Benutzerinteraktion gesetzt
       return newState;
     });
   };
@@ -31,7 +33,7 @@ const O23 = () => {
         state1: { width: 200, height: 300, backgroundColor: 'pink' },
         state2: { width: 300, height: 500, backgroundColor: 'orange' }
       }}
-      transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+      transition={{ duration: hasInteracted ? 1 : 0, ease: [0.19, 1, 0.22, 1] }} // Dauer 0 bei Initialisierung
       onClick={handleClick}
     >
       Element o23
