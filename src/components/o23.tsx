@@ -23,9 +23,9 @@ const O23 = () => {
     const newState = !isState2;
     setIsState2(newState);
     if (newState) {
-      router.push('?id=xy'); // Zustand 2 zur URL hinzufügen
+      router.push('?id=xy');
     } else {
-      router.push(''); // Zustand 1 zur URL zurücksetzen
+      router.push('');
     }
   };
 
