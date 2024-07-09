@@ -1,12 +1,14 @@
-// src/app/page.tsx
-import ModalComponent from '../components/ModalComponent';
+import dynamic from 'next/dynamic';
 
-const HomePage = () => {
+const DynamicO23 = dynamic(() => import('../components/o23'), { ssr: false });
+
+const Page = () => {
   return (
     <div>
-      <ModalComponent />
+      <h1>Next.js mit Framer Motion</h1>
+      <DynamicO23 />
     </div>
   );
 };
 
-export default HomePage;
+export default Page;
