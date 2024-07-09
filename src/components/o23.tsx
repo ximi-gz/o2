@@ -29,11 +29,17 @@ const O23 = () => {
       className={styles.o23}
       initial={false}
       animate={isState2 ? 'state2' : 'state1'}
-      variants={{
-        state1: { width: 200, height: 300, backgroundColor: 'pink' },
-        state2: { width: 300, height: 500, backgroundColor: 'orange' }
+      layout
+      style={{
+        width: isState2 ? 300 : 200,
+        height: isState2 ? 500 : 300,
+        backgroundColor: isState2 ? '#FFA500' : '#FFC0CB',
+        padding: isState2 ? 30 : 10,
+        position: isState2 ? 'fixed' : 'relative',
+        top: isState2 ? '30%' : 'auto',
+        right: isState2 ? '10%' : 'auto',
       }}
-      transition={{ duration: hasInteracted ? 1 : 0, ease: [0.19, 1, 0.22, 1] }} // Dauer 0 bei Initialisierung
+      transition={{ duration: hasInteracted ? 1 : 0, ease: [0.9, 0, 0.15, 1] }} // Dauer 0 bei Initialisierung
       onClick={handleClick}
     >
       Element o23
