@@ -18,7 +18,7 @@ const O23 = () => {
   const handleClick = () => {
     setIsState2(prev => {
       const newState = !prev;
-      router.push(newState ? '?id=xy' : '', { scroll: false, shallow: false });
+      router.push(newState ? '?id=xy' : '', { scroll: false });
       setHasInteracted(true); // Benutzerinteraktion gesetzt
       return newState;
     });
