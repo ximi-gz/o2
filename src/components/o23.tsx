@@ -33,7 +33,7 @@ const O23 = () => {
       style={{
         width: isState2 ? 300 : 200,
         height: isState2 ? 500 : 300,
-        backgroundColor: isState2 ? '#FFA500' : '#FFC0CB',
+        backgroundColor: isState2 ? '#f75832' : '#ee2849',
         padding: isState2 ? 30 : 10,
         position: isState2 ? 'fixed' : 'relative',
         top: isState2 ? '30%' : 'auto',
