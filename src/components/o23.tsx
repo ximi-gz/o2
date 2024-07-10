@@ -18,7 +18,7 @@ const O23 = () => {
   const handleClick = () => {
     setIsState2(prev => {
       const newState = !prev;
-      router.push(newState ? '?id=xy' : '', { scroll: false });
+      router.push(newState ? '?id=xy' : '', { scroll: false, shallow: false });
       setHasInteracted(true); // Benutzerinteraktion gesetzt
       return newState;
     });
@@ -38,6 +38,7 @@ const O23 = () => {
         position: isState2 ? 'fixed' : 'relative',
         top: isState2 ? '30%' : 'auto',
         right: isState2 ? '10%' : 'auto',
+        fontSize: '16px', // Ensure consistent font size
       }}
       transition={{ duration: hasInteracted ? 1 : 0, ease: [0.9, 0, 0.15, 1] }} // Dauer 0 bei Initialisierung
       onClick={handleClick}
