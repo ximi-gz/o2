@@ -39,6 +39,7 @@ const O23 = () => {
         top: isState2 ? '30%' : 'auto',
         right: isState2 ? '10%' : 'auto',
         fontSize: '16px', // Ensure consistent font size
+        pointerEvents: 'auto', // Ensures element responds to click events
       }}
       transition={{ duration: hasInteracted ? 1 : 0, ease: [0.9, 0, 0.15, 1] }} // Dauer 0 bei Initialisierung
       onClick={handleClick}
