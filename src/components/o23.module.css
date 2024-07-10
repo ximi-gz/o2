@@ -1,3 +1,15 @@
 .o23 {
-  cursor: pointer;
+  font-size: 16px; /* Ensure consistent font size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textContainer {
+  transform: scale(1); /* Prevents scaling of text */
+  font-size: inherit; /* Inherit font size from parent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Ensure it does not affect click events */
 }
